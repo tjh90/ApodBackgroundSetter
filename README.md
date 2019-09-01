@@ -11,3 +11,4 @@ Run the following command from the terminal:
   - Beautiful Soup (bs4)
   - lxml
   - urllib
+- [feh](https://feh.finalrewind.org/)

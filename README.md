@@ -4,7 +4,7 @@ Sets a Linux desktop background to the [Astronomy Picture of the day](https://ap
 #### To Run
 Run the following command from the terminal:
 
-`python BackgroundSetter.py`
+`python BackgroundDownloader.py`
 
 #### Requirements
 - Python 3 with the following packages (available to install using `pip install <package>`).

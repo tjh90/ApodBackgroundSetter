@@ -5,9 +5,6 @@ from RecentImageFile import RecentImageFile
 import os
 import subprocess
 
-def findMostRecentDownload():
-    return None
-
 apod = ApodDownloader()
 try:
     apod.downloadPage()

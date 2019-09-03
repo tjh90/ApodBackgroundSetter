@@ -4,7 +4,7 @@ import os
 
 class RecentImageFile:
 
-    validExtensions = ['.bmp', '.gif', '.jpeg', '.jpg', '.png']
+    validExtensions = ['.bmp', '.gif', '.jpeg', '.jpg', '.png', '.tiff']
 
     def __init__(self, dirPath, fileName):
         self.__dirPath = dirPath

@@ -10,5 +10,5 @@ Run the following command from the terminal:
 - Python 3 with the following packages (available to install using `pip install <package>`).
   - Beautiful Soup (bs4)
   - lxml
-  - urllib
-- [feh](https://feh.finalrewind.org/)
+  - requests
+- (On Linux) [feh](https://feh.finalrewind.org/)

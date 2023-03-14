@@ -8,5 +8,6 @@
 *.bmp
 
 # Ignore Python stuff
+.venv/
 *.pyc
 **/__pycache__/**

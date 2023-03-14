@@ -2,7 +2,7 @@
 
 from ImageDownloader.ImageDownloader import ImageDownloader
 from bs4 import BeautifulSoup
-import urllib
+import requests
 
 class ApodDownloader(ImageDownloader):
 
@@ -12,8 +12,9 @@ class ApodDownloader(ImageDownloader):
         self.__homeUrl = self.__baseUrl + 'astropix.html'
 
     def downloadPage(self):
-        resp = urllib.request.urlopen(self.__homeUrl)
-        self.setHtml(resp.read())
+        resp = requests.get(self.__homeUrl)
+        if 200 == resp.status_code:
+            self.setHtml(resp.text)
 
     def downloadImageFromPage(self):
         if self.getHtml() == None:
@@ -28,5 +29,5 @@ class ApodDownloader(ImageDownloader):
         extension = '.' + imageUrl.split('.')[-1]
         self.setFilename('img' + extension)
         with open(self.getFilename(), 'wb') as file:
-            imgData = urllib.request.urlopen(imageUrl).read()
+            imgData = requests.get(imageUrl).content
             file.write(imgData)

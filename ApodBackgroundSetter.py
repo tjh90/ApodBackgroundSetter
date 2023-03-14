@@ -1,9 +1,10 @@
 # Download a background picture from https://www.apod.nasa.gov
 
 from ImageDownloader.ApodDownloader import ApodDownloader
+from ImageSetter.LinuxImageSetter import LinuxImageSetter
+from ImageSetter.WindowsImageSetter import WindowsImageSetter
 from RecentImageFile import RecentImageFile
 import os
-import subprocess
 
 apod = ApodDownloader()
 try:
@@ -16,7 +17,13 @@ except:
 
 # Set the image as the background
 if pathToImage is not None:
-    subprocess.call(['feh', '--bg-max', pathToImage])
+    if 'nt' == os.name:
+        imgSetter = WindowsImageSetter()
+    else:
+        imgSetter = LinuxImageSetter()
+
+    imgSetter.setImageAsBackground(pathToImage)
+
     print('Set background image.')
 else:
     print('Could not find image to set as backgound.')

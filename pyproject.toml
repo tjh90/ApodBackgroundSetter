@@ -19,8 +19,38 @@ Repository = "https://github.com/tjh90/ApodBackgroundSetter"
 [dependency-groups]
 dev = [
     "pytest>=9",
+    "ruff>=0.16.9",
 ]
 
 [tool.hatch.build.targets.wheel]
 only-include = ["src"]
 sources = ["src"]
+
+[tool.ruff]
+target-version = "py314"
+
+[tool.ruff.lint]
+# Pinned explicitly: ruff 0.16 enabled 413 rules by default, so relying on the
+# default set lets a minor release change the baseline underneath us.
+select = [
+    "E",    # pycodestyle
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "SIM",  # flake8-simplify
+    "RET",  # flake8-return
+    "C4",   # flake8-comprehensions
+    "N",    # pep8-naming
+    "RUF",  # ruff-specific
+]
+ignore = [
+    # E501 conflicts with the formatter, which already owns line length.
+    "E501",
+]
+
+[tool.ruff.lint.isort]
+# `src/` is a flat directory of top-level modules rather than a package, so
+# ruff cannot infer that these are first-party by name alone.
+known-first-party = ["ApodApiRequest", "BackgroundSetter"]

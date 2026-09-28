@@ -77,9 +77,11 @@ class GetApodImageUrlTest(unittest.TestCase):
                 error = requests.HTTPError(f'{status_code} Server Error')
                 response = _make_response(status_code=status_code, http_error=error)
 
-                with patch.object(ApodApiRequest.requests, 'get', return_value=response):
-                    with self.assertRaises(requests.HTTPError):
-                        ApodApiRequest.get_apod_image_url(_API_KEY)
+                with (
+                    patch.object(ApodApiRequest.requests, 'get', return_value=response),
+                    self.assertRaises(requests.HTTPError),
+                ):
+                    ApodApiRequest.get_apod_image_url(_API_KEY)
 
                 response.raise_for_status.assert_called_once()
 
@@ -87,9 +89,11 @@ class GetApodImageUrlTest(unittest.TestCase):
         response = _make_response(
             status_code=500, http_error=requests.HTTPError('500 Server Error'))
 
-        with patch.object(ApodApiRequest.requests, 'get', return_value=response):
-            with self.assertRaises(requests.HTTPError):
-                ApodApiRequest.get_apod_image_url(_API_KEY)
+        with (
+            patch.object(ApodApiRequest.requests, 'get', return_value=response),
+            self.assertRaises(requests.HTTPError),
+        ):
+            ApodApiRequest.get_apod_image_url(_API_KEY)
 
         response.json.assert_not_called()
         response.raise_for_status.assert_called_once()

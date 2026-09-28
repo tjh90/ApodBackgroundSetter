@@ -42,3 +42,16 @@ uv run pytest tests/test_apod_api_request.py
 uv run pytest -k GetApodImageUrlTest
 ```
 
+## Linting
+
+Linting is handled by [ruff](https://docs.astral.sh/ruff). To run the linter manually:
+
+```bash
+uv run ruff check .
+```
+
+Most findings are auto-fixable:
+
+```bash
+uv run ruff check --fix .
+```

@@ -1,4 +1,3 @@
-from typing import Optional
 
 import requests
 
@@ -10,7 +9,7 @@ _apod_response_hd_url_key = 'hdurl'
 
 _apod_response_media_type_image = 'image'
 
-def get_apod_image_url(api_key: str) -> Optional[str]:
+def get_apod_image_url(api_key: str) -> str | None:
     '''
     Make a request to NASA's Astronomy Picture of the Day (APOD) API to get the URL of today's picture.
 

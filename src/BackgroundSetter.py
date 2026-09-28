@@ -2,6 +2,7 @@ import ctypes
 import os
 import subprocess
 
+
 def set_background_image(img_path: str):
     """
     Sets the background image of the application.

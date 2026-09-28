@@ -1,15 +1,16 @@
+import os
+
+import requests
+
 import ApodApiRequest
 import BackgroundSetter
-
-import os
-import requests
 
 if __name__ == '__main__':
 
     # Get the API key from a .env file.
     env_file = '.env'
     if os.path.isfile(env_file):
-        with open(env_file, 'r') as file:
+        with open(env_file) as file:
             api_key = file.readline().strip()
 
     # Get the image URL by querying the APOD API.

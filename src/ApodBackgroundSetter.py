@@ -5,10 +5,9 @@ import requests
 import ApodApiRequest
 import BackgroundSetter
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     # Get the API key from a .env file.
-    env_file = '.env'
+    env_file = ".env"
     if os.path.isfile(env_file):
         with open(env_file) as file:
             api_key = file.readline().strip()
@@ -21,11 +20,11 @@ if __name__ == '__main__':
             response.raise_for_status()
 
         # Generate the file name from the image URL.
-        extension = image_url.split('.')[-1]
-        img_file = f'img.{extension}'
+        extension = image_url.split(".")[-1]
+        img_file = f"img.{extension}"
 
         # Download the image and save it to a file.
-        with open(img_file, 'wb') as file:
+        with open(img_file, "wb") as file:
             file.write(response.content)
 
         # Set the background image.

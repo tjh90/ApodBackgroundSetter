@@ -16,5 +16,11 @@ dependencies = [
 [project.urls]
 Repository = "https://github.com/tjh90/ApodBackgroundSetter"
 
+[dependency-groups]
+dev = [
+    "pytest>=9",
+]
+
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+only-include = ["src"]
+sources = ["src"]

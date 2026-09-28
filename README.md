@@ -1,5 +1,7 @@
 # ApodBackgroundSetter
 
+[![tests](https://github.com/tjh90/ApodBackgroundSetter/actions/workflows/build.yml/badge.svg?branch=main&event=push)](https://github.com/tjh90/ApodBackgroundSetter/actions/workflows/build.yml)
+
 Sets a desktop background to the [Astronomy Picture of the Day](https://science.nasa.gov/apod).
 
 ## Getting Started

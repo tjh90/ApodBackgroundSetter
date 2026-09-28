@@ -22,8 +22,10 @@ def get_apod_image_url(api_key: str) -> str | None:
     """
 
     # Make the request to the APOD API.
-    url = f"{_apod_api_base_url}?{_apod_request_param_api_key}={api_key}"
-    response = requests.get(url)
+    response = requests.get(
+        _apod_api_base_url,
+        params={_apod_request_param_api_key: api_key},
+    )
 
     # Raise an HTTPError if the request was not successful.
     if requests.codes.ok != response.status_code:

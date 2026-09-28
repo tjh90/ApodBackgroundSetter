@@ -6,6 +6,8 @@ import requests
 import ApodApiRequest
 
 _API_KEY = "DEMO_KEY"
+_APOD_API_BASE_URL = ApodApiRequest._apod_api_base_url
+_API_KEY_PARAM = ApodApiRequest._apod_request_param_api_key
 
 
 def _make_response(status_code=200, json_data=None, http_error=None):
@@ -33,7 +35,7 @@ class GetApodImageUrlTest(unittest.TestCase):
 
         self.assertEqual(result, "https://apod.nasa.gov/apod/image/hd.jpg")
         get.assert_called_once_with(
-            f"https://api.nasa.gov/planetary/apod?api_key={_API_KEY}"
+            _APOD_API_BASE_URL, params={_API_KEY_PARAM: _API_KEY}
         )
         response.raise_for_status.assert_not_called()
 

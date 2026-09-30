@@ -6,6 +6,8 @@ Sets a desktop background to the [Astronomy Picture of the Day](https://science.
 
 ## Getting Started
 
+Pictures are fetched from the [APOD Basic JSON API](https://science.nasa.gov/apod).
+
 ## Prerequisites
 
 - Python 3.8+
